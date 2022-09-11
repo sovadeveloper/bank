@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-crime
+      author: sovadeveloper
+      changes:
+        - createTable:
+            tableName: criminal
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: passport
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: crime_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: crime_fk

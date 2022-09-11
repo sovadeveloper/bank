@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-table-ratetype.yaml
+  - include:
+      file: db/changelog/changeset/create-table-paymenttype.yaml
+  - include:
+      file: db/changelog/changeset/create-table-deposit.yaml

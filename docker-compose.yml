@@ -1,0 +1,135 @@
+version: "3.8"
+services:
+  gateway:
+    container_name: gateway
+    build: 
+      context: ./gateway
+      dockerfile: ./Dockerfile
+    ports:
+      - 8761:8761
+    restart: on-failure
+    image: 'gateway'
+
+  bankservice:
+    container_name: bank_service
+    build:
+      context: ./bankService
+      dockerfile: ./Dockerfile
+    depends_on:
+      - gateway
+      - bankservice_db
+    ports: 
+      - 8084:8084
+    restart: on-failure
+    image: bankservice
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://bankservice_db:5432/bankService
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://gateway:8761/eureka/
+  
+  bankservice_db:
+    image: 'postgres:13.1-alpine'
+    container_name: bankservice_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=bankService
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+  cardservice:
+    container_name: card_service
+    build:
+      context: ./cardService
+      dockerfile: ./Dockerfile
+    depends_on:
+      - gateway
+      - cardservice_db
+    ports: 
+      - 8083:8083
+    restart: on-failure
+    image: cardservice
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://cardservice_db:5432/cardService
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://gateway:8761/eureka/
+  
+  cardservice_db:
+    image: 'postgres:13.1-alpine'
+    container_name: cardservice_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=cardService
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+  depositservice:
+    container_name: deposit_service
+    build:
+      context: ./depositService
+      dockerfile: ./Dockerfile
+    depends_on:
+      - gateway
+      - depositservice_db
+    ports: 
+      - 8082:8082
+    restart: on-failure
+    image: depositservice
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://depositservice_db:5432/depositService
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://gateway:8761/eureka/
+  
+  depositservice_db:
+    image: 'postgres:13.1-alpine'
+    container_name: depositservice_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=depositService
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+  policeservice:
+    container_name: police_service
+    build:
+      context: ./policeService
+      dockerfile: ./Dockerfile
+    depends_on:
+      - gateway
+      - policeservice_db
+    ports: 
+      - 8081:8081
+    restart: on-failure
+    image: policeservice
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://policeservice_db:5432/policeService
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://gateway:8761/eureka/
+  
+  policeservice_db:
+    image: 'postgres:13.1-alpine'
+    container_name: policeservice_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=policeService
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+  oauthclient:
+    container_name: oauthclient
+    build:
+      context: ./oauthClient
+      dockerfile: ./Dockerfile
+    depends_on:
+      - gateway
+    ports: 
+      - 8881:8881
+    restart: on-failure
+    image: oauthclient
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://gateway:8761/eureka/
+  
+

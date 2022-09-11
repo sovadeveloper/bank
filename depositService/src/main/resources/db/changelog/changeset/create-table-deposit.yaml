@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-deposit
+      author: sovadeveloper
+      changes:
+        - createTable:
+            tableName: deposit
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: passport
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: start_sum
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: current_sum
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_start
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_end
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: capitalization
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rate_type_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: rate_type_fk
+              - column:
+                  name: payment_type_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: payment_type_fk
