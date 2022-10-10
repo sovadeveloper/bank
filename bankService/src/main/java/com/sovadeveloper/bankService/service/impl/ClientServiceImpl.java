@@ -22,4 +22,10 @@ public class ClientServiceImpl implements ClientService {
     public Page<Client> getAll(Pageable pageable) {
         return clientRepo.findAll(pageable);
     }
+
+    @Override
+    public Long delete(Long id) {
+        clientRepo.deleteById(id);
+        return id;
+    }
 }
