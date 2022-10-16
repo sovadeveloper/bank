@@ -15,7 +15,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: passport
-                  type: varchar(10)
+                  type: varchar(11)
                   constraints:
                     nullable: false
               - column:
