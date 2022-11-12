@@ -8,6 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/api/clients")
 public class ClientController {
@@ -20,20 +21,20 @@ public class ClientController {
     }
 
     @GetMapping
-    public ResponseEntity getAll(@PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable){
+    public ResponseEntity getAll(@PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         try {
             return ResponseEntity.ok(clientService.getAll(pageable));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.badRequest().body(e);
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity delete(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(clientService.delete(id));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.badRequest().body(e);
         }
