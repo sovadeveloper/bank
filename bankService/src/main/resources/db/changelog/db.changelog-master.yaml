@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changeset/create-table-client.yaml
+  - include:
+      file: db/changelog/changeset/create-data-test.yaml

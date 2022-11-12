@@ -1,0 +1,185 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-data-test
+      author: sovadeveloper
+      changes:
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111100
+              - column:
+                  name: description
+                  value: "Какое-то описание"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111102
+              - column:
+                  name: description
+                  value: "Какое-то описание 2"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111103
+              - column:
+                  name: description
+                  value: "Какое-то описание 3"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111104
+              - column:
+                  name: description
+                  value: "Какое-то описание 4"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111105
+              - column:
+                  name: description
+                  value: "Какое-то описание 5"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111106
+              - column:
+                  name: description
+                  value: "Какое-то описание 6"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111107
+              - column:
+                  name: description
+                  value: "Какое-то описание 7"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111108
+              - column:
+                  name: description
+                  value: "Какое-то описание 8"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111109
+              - column:
+                  name: description
+                  value: "Какое-то описание 9"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111110
+              - column:
+                  name: description
+                  value: "Какое-то описание 10"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111111
+              - column:
+                  name: description
+                  value: "Какое-то описание 11"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111112
+              - column:
+                  name: description
+                  value: "Какое-то описание 12"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111113
+              - column:
+                  name: description
+                  value: "Какое-то описание 13"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111114
+              - column:
+                  name: description
+                  value: "Какое-то описание 14"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111115
+              - column:
+                  name: description
+                  value: "Какое-то описание 15"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111116
+              - column:
+                  name: description
+                  value: "Какое-то описание 16"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111117
+              - column:
+                  name: description
+                  value: "Какое-то описание 17"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111118
+              - column:
+                  name: description
+                  value: "Какое-то описание 18"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111119
+              - column:
+                  name: description
+                  value: "Какое-то описание 19"
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: passport
+                  value: 2020 111120
+              - column:
+                  name: description
+                  value: "Какое-то описание 20"
